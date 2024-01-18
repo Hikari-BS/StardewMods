@@ -17,7 +17,7 @@
             // also set it to 1000 if it's greater than 1000
             set
             {
-                value = value < 0 ? 0 : value > 1000 ? 1000 : value; // ternary 4life lol
+                value = value < 0 ? 0 : value > 1000 ? 1000 : value;
                 percentMeleeDamageMultiplier = value;
             }
         }

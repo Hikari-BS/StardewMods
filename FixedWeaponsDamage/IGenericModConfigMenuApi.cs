@@ -4,14 +4,8 @@ using System;
 namespace GenericModConfigMenu
 {
     /// <summary>The API which lets other mods add a config UI through Generic Mod Config Menu.</summary>
-    public interface IGenericModConfigMenuApi// DELETE THIS LINE WHEN COPIED INTO YOUR MOD CODE
+    public interface IGenericModConfigMenuApi
     {
-        /*********
-        ** Methods
-        *********/
-        /****
-        ** Must be called first
-        ****/
         /// <summary>Register a mod whose config can be edited through the UI.</summary>
         /// <param name="mod">The mod's manifest.</param>
         /// <param name="reset">Reset the mod's config to its default values.</param>

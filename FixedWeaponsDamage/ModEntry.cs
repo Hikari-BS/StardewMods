@@ -35,7 +35,7 @@ namespace FixedWeaponsDamage
 
             foreach (Item item in e.Added)
             {
-                // Monitor.Log($"Looping check for Player_InventoryChanged()", LogLevel.Debug);
+                Monitor.Log($"Looping check for Player_InventoryChanged()", LogLevel.Trace);
                 if (item is not null and MeleeWeapon weapon)
                     if (weapon.minDamage != weapon.maxDamage) RefreshInventory();
             }
@@ -66,7 +66,7 @@ namespace FixedWeaponsDamage
                     }
                 }, AssetEditPriority.Late);
 
-                // Monitor.Log($"Successfully edited melee weapons data with damage multiplier of {config.PercentMeleeDamageMultiplier}%.", LogLevel.Debug);
+                Monitor.Log($"Successfully edited melee weapons data with damage multiplier of {config.PercentMeleeDamageMultiplier}%.", LogLevel.Trace);
             }
 
             if (e.NameWithoutLocale.IsEquivalentTo("Strings/UI"))
@@ -161,7 +161,7 @@ namespace FixedWeaponsDamage
             configMenu.AddNumberOption(
                 mod: ModManifest,
                 name: () => "Melee damage multiplier%",
-                tooltip: () => "Damage multiplier for melee weapons in percentage.\n\nI.e. a multiplier of 50% means 0.5 * damage, you know the math ;).",
+                tooltip: () => "Damage multiplier for melee weapons relative to vanilla max damage (in percentage).\n\nI.e. a multiplier of 50% means 0.5 * damage, you know the math ;).",
                 getValue: () => config.PercentMeleeDamageMultiplier,
                 setValue: value => config.PercentMeleeDamageMultiplier = value
                 );
@@ -182,7 +182,7 @@ namespace FixedWeaponsDamage
             configMenu.AddNumberOption(
                 mod: ModManifest,
                 name: () => "Slingshot damage multiplier%",
-                tooltip: () => "Damage multiplier for slingshot in percentage.\n\nI.e. a multiplier of 50% means 0.5 * damage, you know the math ;).",
+                tooltip: () => "Damage multiplier for slingshot relative to vanilla max damage (in percentage).\n\nI.e. a multiplier of 50% means 0.5 * damage, you know the math ;).",
                 getValue: () => config.PercentSlingshotDamageMultiplier,
                 setValue: value => config.PercentSlingshotDamageMultiplier = value
                 );
