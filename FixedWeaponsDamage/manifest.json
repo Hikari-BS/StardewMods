@@ -2,7 +2,7 @@
 	"Name": "Fixed Weapons Damage",
 	"Author": "BlueSight",
 	"Version": "1.0.0",
-	"Description": "Change damage output to a fixed value.",
+	"Description": "Un-randomize your weapon damage.",
 	"UniqueID": "BlueSight.FixedWeaponsDamage",
 	"EntryDll": "FixedWeaponsDamage.dll",
 	"MinimumApiVersion": "3.0.0",
