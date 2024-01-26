@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmptyYourHands", "EmptyYour
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FixedWeaponsDamage", "FixedWeaponsDamage\FixedWeaponsDamage.csproj", "{709B675D-2C4C-4F36-92AC-4CFC2660B6BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuteMusic", "MuteMusic\MuteMusic.csproj", "{3839581C-29CA-4A6D-92BC-C943B8EF299A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{709B675D-2C4C-4F36-92AC-4CFC2660B6BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{709B675D-2C4C-4F36-92AC-4CFC2660B6BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{709B675D-2C4C-4F36-92AC-4CFC2660B6BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3839581C-29CA-4A6D-92BC-C943B8EF299A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3839581C-29CA-4A6D-92BC-C943B8EF299A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3839581C-29CA-4A6D-92BC-C943B8EF299A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3839581C-29CA-4A6D-92BC-C943B8EF299A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,10 @@
+{
+  "Name": "Mute Music",
+  "Author": "BlueSight",
+  "Version": "1.0.0",
+  "Description": "Mute music with a hotkey.",
+  "UniqueID": "BlueSight.MuteMusic",
+  "EntryDll": "MuteMusic.dll",
+  "MinimumApiVersion": "3.0.0",
+  "UpdateKeys": [ "" ]
+}
