@@ -4,7 +4,7 @@ using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 
-namespace FixedWeaponsDamage
+namespace MuteMusic
 {
     /// <summary>The mod entry point.</summary>
     internal class ModEntry : Mod
@@ -24,21 +24,56 @@ namespace FixedWeaponsDamage
 
         private void Input_ButtonsChanged(object sender, ButtonsChangedEventArgs e)
         {
-            if (!Context.IsWorldReady) return;
-
-            float musicVolume = Game1.options.musicVolumeLevel;
-
             if (config.MuteHotkey.JustPressed())
             {
-                if (musicVolume > 0)
+                bool isMuted = ToggleMuteMusic();
+                if (isMuted) Monitor.Log("Music muted.", LogLevel.Debug);
+            }
+        }
+
+        /// <summary>
+        /// return true if music becomes muted
+        /// </summary>
+        /// <returns></returns>
+        public bool ToggleMuteMusic()
+        {
+            if (Game1.soundBank != null)
+            {
+                if (Game1.options.musicVolumeLevel != 0f)
                 {
-                    oldMusicVolume = musicVolume;
-                    Game1.musicCategory.SetVolume(0f);
+                    DisableMusic();
+                    return true;
                 }
-                if (musicVolume == 0)
-                {
-                    Game1.musicCategory.SetVolume(oldMusicVolume);
-                }
+                EnableMusic();
+            }
+            return false;
+        }
+
+        private void DisableMusic()
+        {
+            if (Game1.soundBank != null)
+            {
+                oldMusicVolume = Game1.options.musicVolumeLevel;
+
+                Game1.options.musicVolumeLevel = 0f;
+                Game1.musicCategory.SetVolume(0f);
+                Game1.musicPlayerVolume = 0f;
+                // Game1.options.ambientVolumeLevel = 0f;
+                // Game1.ambientCategory.SetVolume(0f);
+                // Game1.ambientPlayerVolume = 0f;
+            }
+        }
+
+        private void EnableMusic()
+        {
+            if (Game1.soundBank != null)
+            {
+                Game1.options.musicVolumeLevel = oldMusicVolume;
+                Game1.musicCategory.SetVolume(oldMusicVolume);
+                Game1.musicPlayerVolume = oldMusicVolume;
+                // Game1.options.ambientVolumeLevel = 0.75f;
+                // Game1.ambientCategory.SetVolume(0.75f);
+                // Game1.ambientPlayerVolume = 0.75f;
             }
         }
 
@@ -67,6 +102,6 @@ namespace FixedWeaponsDamage
 
     internal class ModConfig
     {
-        public KeybindList MuteHotkey { get; set; } = KeybindList.Parse("LeftAlt + M");
+        public KeybindList MuteHotkey { get; set; } = KeybindList.Parse("M");
     }
 }
